@@ -456,26 +456,121 @@
   .fade-up.visible { opacity:1; transform:none; }
 
   /* RESPONSIVE */
+  /* ── TABLET (max 900px) ── */
   @media (max-width:900px) {
     .nav-links { display:none; }
     .hamburger { display:flex; }
-    .hero-content { grid-template-columns:1fr; gap:48px; }
-    .trust-bar-grid { grid-template-columns:1fr 1fr !important; gap:20px !important; }
+
+    /* Hero */
+    .hero-content { grid-template-columns:1fr !important; gap:36px; padding:60px 5% !important; }
+    .hero-content h1 { font-size:36px !important; }
+    .hero-content > div:last-child { grid-template-columns:1fr 1fr; gap:12px; }
+
+    /* Trust bar */
+    .trust-bar-grid { grid-template-columns:1fr 1fr !important; gap:16px !important; }
     .trust-bar-grid > div { border-right:none !important; border-bottom:1px solid var(--border); padding:16px 0 !important; }
-    .hero-stats { grid-template-columns:1fr 1fr; }
-    .about-grid { grid-template-columns:1fr; }
-    .mission-vision { grid-template-columns:1fr; }
-    .sourcing-grid { grid-template-columns:1fr; gap:40px; }
-    .sd-inner { grid-template-columns:1fr; gap:40px; }
+
+    /* About */
+    .about-grid { grid-template-columns:1fr !important; gap:40px; }
+    .about-img-box { height:280px !important; }
+    .mission-vision { grid-template-columns:1fr !important; }
+    .leadership-grid { grid-template-columns:1fr !important; }
+
+    /* Sourcing */
+    .sourcing-grid { grid-template-columns:1fr !important; gap:40px; }
+    .sourcing-split-grid { grid-template-columns:1fr !important; }
+    .region-cards-grid { grid-template-columns:1fr !important; }
+
+    /* Services */
+    .sd-inner { grid-template-columns:1fr !important; gap:40px; }
     .service-detail:nth-child(even) .sd-inner { direction:ltr; }
-    .contact-layout { grid-template-columns:1fr; gap:48px; }
-    .form-row { grid-template-columns:1fr; }
-    .footer-grid { grid-template-columns:1fr 1fr; gap:32px; }
+    .services-grid { grid-template-columns:1fr 1fr !important; }
+
+    /* Contact */
+    .contact-layout { grid-template-columns:1fr !important; gap:40px; padding:60px 5% !important; }
+    .form-row { grid-template-columns:1fr !important; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns:1fr 1fr !important; gap:28px; }
+
+    /* Careers */
+    .leader-card { flex-direction:column !important; }
   }
+
+  /* ── MOBILE (max 600px) ── */
   @media (max-width:600px) {
-    .footer-grid { grid-template-columns:1fr; }
-    .footer-bottom { flex-direction:column; text-align:center; }
-    .hero-stats { grid-template-columns:1fr; }
+    /* Nav */
+    nav { padding:0 4% !important; height:72px !important; }
+    nav.scrolled { height:64px !important; }
+    .logo img { height:48px !important; }
+    .mobile-menu { top:72px !important; padding:12px 4% 24px !important; }
+
+    /* Hero */
+    .hero-content { padding:48px 4% !important; gap:28px; }
+    .hero-content h1 { font-size:30px !important; line-height:1.2 !important; }
+    .hero-content p { font-size:15px !important; }
+    .hero-content > div:last-child { grid-template-columns:1fr 1fr !important; gap:10px; }
+    .hero-stat-card { padding:18px 14px !important; }
+    .hsc-title { font-size:16px !important; }
+    .hero-btns { flex-direction:column !important; gap:12px !important; }
+    .hero-btns a { width:100% !important; justify-content:center !important; }
+
+    /* Trust bar */
+    .trust-bar-grid { grid-template-columns:1fr !important; }
+    .trust-bar-grid > div { border-right:none !important; padding:16px 0 !important; }
+
+    /* Sections */
+    section { padding:60px 4% !important; }
+    .section-title { font-size:26px !important; }
+
+    /* About */
+    .about-img-box { height:220px !important; }
+    .mv-card { padding:24px !important; }
+    .values-corporate-grid { grid-template-columns:1fr 1fr !important; }
+    .corp-val-card { padding:24px 18px !important; }
+    .leader-card { padding:24px !important; }
+
+    /* Services */
+    .services-grid { grid-template-columns:1fr !important; }
+    .sd-icon-big { width:56px !important; height:56px !important; }
+    .features-list li { font-size:13px !important; padding:12px 14px !important; }
+    .services-hero h1 { font-size:32px !important; }
+
+    /* Countries grid */
+    .src-all-countries { grid-template-columns:repeat(3,1fr) !important; }
+    .src-country { padding:14px 8px !important; }
+    .src-flag-svg { width:38px !important; height:25px !important; }
+    .src-name { font-size:11px !important; }
+
+    /* Industries */
+    .industries-serve-grid { grid-template-columns:1fr 1fr !important; }
+    .ind-serve-card { padding:20px 16px !important; }
+    .ind-serve-title { font-size:13px !important; }
+
+    /* Contact */
+    .contact-layout { padding:48px 4% !important; }
+    .contact-form { padding:24px !important; }
+    .contact-info h2 { font-size:26px !important; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns:1fr !important; gap:32px !important; }
+    .footer-bottom { flex-direction:column !important; text-align:center !important; gap:8px !important; }
+    footer { padding:48px 4% 24px !important; }
+
+    /* Careers */
+    .leadership-grid { grid-template-columns:1fr !important; max-width:100% !important; }
+    .sourcing-regions { grid-template-columns:1fr !important; }
+
+    /* WhatsApp button */
+    .wa-btn { bottom:20px !important; right:20px !important; width:52px !important; height:52px !important; }
+  }
+
+  /* ── SMALL MOBILE (max 380px) ── */
+  @media (max-width:380px) {
+    .hero-content h1 { font-size:26px !important; }
+    .src-all-countries { grid-template-columns:repeat(2,1fr) !important; }
+    .values-corporate-grid { grid-template-columns:1fr !important; }
+    .industries-serve-grid { grid-template-columns:1fr !important; }
   }
 </style>
 </head>
