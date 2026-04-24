@@ -3,7 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Talent Core HR Solutions — People • Process • Performance</title>
+<title>Talent Core HR Solutions | HR Outsourcing &amp; Recruitment Agency in UAE</title>
+<meta name="description" content="Talent Core HR Solutions is a UAE-based HR outsourcing and recruitment agency specialising in local and overseas recruitment, HR advisory, PRO services, and business setup for growing businesses.">
+<meta name="keywords" content="HR outsourcing UAE, recruitment agency Dubai, overseas recruitment, PRO services UAE, HR advisory, business setup UAE, staffing agency, manpower supply UAE">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Talent Core HR Solutions">
+<link rel="canonical" href="https://talentcorehrs.com">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://talentcorehrs.com">
+<meta property="og:title" content="Talent Core HR Solutions | HR Outsourcing &amp; Recruitment Agency in UAE">
+<meta property="og:description" content="UAE-based HR outsourcing and recruitment agency specialising in local and overseas recruitment, HR advisory, PRO services, and business setup.">
+<meta property="og:site_name" content="Talent Core HR Solutions">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Talent Core HR Solutions | HR &amp; Recruitment Agency UAE">
+<meta name="twitter:description" content="UAE-based HR outsourcing and recruitment agency specialising in local and overseas recruitment, HR advisory, PRO services, and business setup.">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Talent Core HR Solutions",
+  "description": "UAE-based HR outsourcing and recruitment agency specialising in local and overseas recruitment, HR advisory, PRO services, and business setup for growing businesses.",
+  "url": "https://talentcorehrs.com",
+  "telephone": "+971558012386",
+  "email": "info@talentcorehrs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "AE",
+    "addressRegion": "United Arab Emirates"
+  },
+  "areaServed": ["AE", "IN", "PH", "PK", "BD", "NP", "LK", "EG", "NG", "GH", "KE", "ET", "SD", "ID"],
+  "serviceType": ["Recruitment", "HR Outsourcing", "PRO Services", "Business Setup", "HR Advisory"],
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61564509751859",
+    "https://www.instagram.com/talentcorehrs/",
+    "https://www.linkedin.com/company/talent-core-hr-solution/"
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -1586,15 +1629,21 @@ section { width: 100%; }
       email: email,
       phone: document.getElementById('phone').value.trim(),
       service: document.getElementById('service').value,
-      message: document.getElementById('message').value.trim(),
-      _replyto: email,
-      _subject: 'New Inquiry from Talent Core Website'
+      message: document.getElementById('message').value.trim()
     };
 
+    var SUPABASE_URL = 'https://aamapdpzbpbycctthuqn.supabase.co';
+    var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhbWFwZHB6YnBieWNjdHRodXFuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwNTM3NTcsImV4cCI6MjA5MjYyOTc1N30.xExkyb5ajmmgYcsL59Nq5R31w6jfrv63q3B4-xYO0OQ';
+
     try {
-      var res = await fetch('https://formspree.io/f/info@talentcorehrs.com', {
+      var res = await fetch(SUPABASE_URL + '/rest/v1/contact_submissions', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Prefer': 'return=minimal'
+        },
         body: JSON.stringify(data)
       });
       if (res.ok) {
