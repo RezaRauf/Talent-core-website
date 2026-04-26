@@ -726,6 +726,32 @@ section { width: 100%; }
   .hero-content > div:last-child { grid-template-columns: 1fr !important; }
 }
 
+/* ── LARGE SCREENS / TV ≥ 1440px ── */
+@media (min-width: 1440px) {
+  nav {
+    padding: 0 calc((100% - 1400px) / 2) !important;
+  }
+  section,
+  .services-hero,
+  .service-detail,
+  .cta-strip,
+  .tagline-bar,
+  .map-strip,
+  footer,
+  div[style*="padding:80px 5%"],
+  div[style*="padding:90px 5%"],
+  div[style*="padding:100px 5%"],
+  div[style*="padding:70px 5%"],
+  div[style*="padding:60px 5%"] {
+    padding-left: calc((100% - 1400px) / 2) !important;
+    padding-right: calc((100% - 1400px) / 2) !important;
+  }
+  .contact-layout {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
 </style>
 </head>
 <body>
