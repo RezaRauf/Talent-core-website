@@ -726,6 +726,251 @@ section { width: 100%; }
   .hero-content > div:last-child { grid-template-columns: 1fr !important; }
 }
 
+/* ════════════════════════════════════════════════════════════════
+   DARK MODE — MOBILE ONLY
+   Applies ONLY when: system prefers dark scheme AND screen ≤ 900px
+   Zero impact on light mode. Zero impact on desktop dark mode.
+════════════════════════════════════════════════════════════════ */
+@media (prefers-color-scheme: dark) and (max-width: 900px) {
+
+  /* ── PALETTE TOKENS ─────────────────────────────────────────
+     Overriding the existing CSS variables here automatically
+     fixes every rule that uses var(--white), var(--off-white),
+     var(--text-*), and var(--border) — no duplication needed.
+  ─────────────────────────────────────────────────────────── */
+  :root {
+    --white:      #0d1117;   /* replaces pure-white backgrounds */
+    --off-white:  #161c2d;   /* replaces off-white surfaces     */
+    --text-dark:  #e2e5ef;   /* primary text                    */
+    --text-mid:   #adb5cc;   /* secondary text                  */
+    --text-light: #7f8ba6;   /* muted / caption text            */
+    --border:     rgba(255, 255, 255, 0.09); /* subtle dividers */
+  }
+
+  /* ── BASE ─────────────────────────────────────────────────── */
+  body { background: #0d1117; color: #e2e5ef; }
+
+  /* ── NAV ──────────────────────────────────────────────────── */
+  nav {
+    background: rgba(9, 12, 20, 0.95) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.5), 0 4px 24px rgba(0,0,0,0.5) !important;
+  }
+  nav.scrolled {
+    background: rgba(9, 12, 20, 0.99) !important;
+    box-shadow: 0 2px 32px rgba(0,0,0,0.6) !important;
+  }
+  .hamburger span { background: #c8cfe4 !important; }
+  .hamburger:hover { background: rgba(255,255,255,0.08) !important; }
+
+  /* ── MOBILE MENU ──────────────────────────────────────────── */
+  .mobile-menu {
+    background: #111827 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.6) !important;
+  }
+  .mobile-menu a {
+    color: #c8cfe4 !important;
+    border-bottom-color: rgba(255,255,255,0.07) !important;
+  }
+  .mobile-menu a:hover { color: #d4a63a !important; }
+  /* Contact Us CTA in mobile menu — swap navy→gold for contrast */
+  .mobile-menu a[style*="background:#111d3c"] {
+    background: #d4a63a !important;
+    color: #0d1117 !important;
+    box-shadow: 0 4px 14px rgba(212,166,58,0.25) !important;
+  }
+
+  /* ── INLINE WHITE / LIGHT SECTION BACKGROUNDS ────────────── */
+  /* Targets inline style="background:#ffffff" / "background:white" */
+  section[style*="background:#ffffff"],
+  section[style*="background: #ffffff"],
+  div[style*="background:#ffffff"],
+  div[style*="background: #ffffff"],
+  div[style*="background:white"],
+  div[style*="background: white"] {
+    background: #0d1117 !important;
+  }
+  /* Headings & text inside those light sections */
+  section[style*="background:#ffffff"] h1,
+  section[style*="background:#ffffff"] h2,
+  div[style*="background:#ffffff"] h1,
+  div[style*="background:#ffffff"] h2 { color: #e2e5ef !important; }
+  section[style*="background:#ffffff"] p,
+  div[style*="background:#ffffff"] p  { color: #7f8ba6 !important; }
+
+  /* ── SECTION TYPOGRAPHY ───────────────────────────────────── */
+  .section-title { color: #e2e5ef; }
+  .section-sub   { color: #7f8ba6; }
+
+  /* ── SERVICE CARDS (home) ────────────────────────────────── */
+  /* background uses var(--white) → auto-updates via token above */
+  .service-card {
+    border-color: rgba(255,255,255,0.08) !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35) !important;
+  }
+  .service-card:hover {
+    box-shadow: 0 20px 50px rgba(0,0,0,0.55) !important;
+    border-color: transparent !important;
+  }
+  /* service-icon bg uses var(--off-white) → auto-updates */
+  .service-icon svg { stroke: #8892aa !important; }
+  .service-card h3 { color: #e2e5ef !important; }
+
+  /* ── MISSION / VISION CARDS ──────────────────────────────── */
+  /* background uses var(--off-white) → auto-updates */
+  .mv-card h3 { color: #e2e5ef !important; }
+  .mv-card p  { color: #adb5cc !important; }
+
+  /* ── CORPORATE VALUES CARDS ──────────────────────────────── */
+  /* hardcoded background: #ffffff — explicit override needed  */
+  .corp-val-card {
+    background: #161c2d !important;
+    border-right: 1px solid rgba(255,255,255,0.06) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+  }
+  .corp-val-card:hover { background: #1b2236 !important; }
+  .corp-val-title { color: #e2e5ef !important; }
+  .corp-val-desc  { color: #7f8ba6 !important; }
+  .corp-val-icon svg { stroke: #8892aa !important; }
+  .corp-val-card:hover .corp-val-icon svg { stroke: #d4a63a !important; }
+
+  /* ── VALUES ITEMS (about page grid) ──────────────────────── */
+  /* hardcoded background: white — explicit override needed     */
+  .val-item {
+    background: #161c2d !important;
+    border-color: rgba(255,255,255,0.08) !important;
+  }
+  .val-item h4 { color: #e2e5ef !important; }
+
+  /* ── INDUSTRIES SERVE CARDS ──────────────────────────────── */
+  /* hardcoded background: #ffffff — explicit override needed   */
+  .ind-serve-card {
+    background: #161c2d !important;
+    border-color: rgba(255,255,255,0.08) !important;
+  }
+  .ind-serve-card:hover {
+    box-shadow: 0 12px 36px rgba(0,0,0,0.5) !important;
+    border-color: rgba(255,255,255,0.14) !important;
+  }
+  .ind-serve-icon { background: #1e2538 !important; }
+  .ind-serve-icon svg { stroke: #8892aa !important; }
+  .ind-serve-card:hover .ind-serve-icon { background: #111d3c !important; }
+  .ind-serve-card:hover .ind-serve-icon svg { stroke: #d4a63a !important; }
+  .ind-serve-title { color: #e2e5ef !important; }
+
+  /* ── LEADERSHIP CARDS ────────────────────────────────────── */
+  /* hardcoded background: white — explicit override needed     */
+  .leader-card {
+    background: #161c2d !important;
+    border-color: rgba(255,255,255,0.08) !important;
+  }
+  .leader-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.55) !important; }
+  .leader-card h3 { color: #e2e5ef !important; }
+
+  /* ── ABOUT IMAGE BOX ─────────────────────────────────────── */
+  .about-img-box {
+    background: linear-gradient(135deg, #161c2d, #1e2538) !important;
+  }
+
+  /* ── SERVICES PAGE — DETAIL SECTIONS ────────────────────── */
+  /* :nth-child(even) uses var(--off-white) → auto-updates     */
+  .sd-sidebar h2 { color: #e2e5ef !important; }
+  .sd-sidebar p  { color: #adb5cc !important; }
+  /* hardcoded background: white — explicit override needed     */
+  .features-list li {
+    background: #161c2d !important;
+    border-color: rgba(255,255,255,0.08) !important;
+    color: #e2e5ef !important;
+  }
+
+  /* ── CAREERS — "WHY JOIN US" CARDS ──────────────────────── */
+  /* inline style="...border-top:3px solid var(--gold)" cards  */
+  div[style*="border-top:3px solid var(--gold)"] {
+    background: #161c2d !important;
+    border-color: rgba(255,255,255,0.08) !important;
+  }
+  div[style*="border-top:3px solid var(--gold)"] h4 { color: #e2e5ef !important; }
+
+  /* Coming soon icon circle */
+  div[style*="background:white;border:1px solid var(--border);border-radius:50%"] {
+    background: #1e2538 !important;
+    border-color: rgba(255,255,255,0.1) !important;
+  }
+
+  /* ── CONTACT PAGE INFO ───────────────────────────────────── */
+  .contact-info h2  { color: #e2e5ef !important; }
+  .contact-info > p { color: #7f8ba6 !important; }
+  .contact-item-text strong { color: #7f8ba6 !important; }
+  .contact-item-text a,
+  .contact-item-text span   { color: #e2e5ef !important; }
+  .contact-item-text a:hover { color: #d4a63a !important; }
+
+  /* ── CONTACT FORM ────────────────────────────────────────── */
+  /* hardcoded background: white — explicit override needed     */
+  .contact-form {
+    background: #161c2d !important;
+    border-color: rgba(255,255,255,0.08) !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
+  }
+  .contact-form h3 { color: #e2e5ef !important; }
+  label { color: #7f8ba6 !important; }
+
+  /* inputs — background uses var(--off-white) → auto-updates,
+     but we deepen it further for better dark-mode feel        */
+  input, select, textarea {
+    background: #1e2538 !important;
+    border-color: rgba(255,255,255,0.11) !important;
+    color: #e2e5ef !important;
+    -webkit-text-fill-color: #e2e5ef; /* iOS Safari text color */
+  }
+  input::placeholder, textarea::placeholder {
+    color: #4a5472 !important;
+    opacity: 1;
+  }
+  select option { background: #1e2538; color: #e2e5ef; }
+
+  /* Autofill — prevents browser from painting a light yellow bg */
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #1e2538 inset !important;
+    -webkit-text-fill-color: #e2e5ef !important;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: #d4a63a !important;
+    box-shadow: 0 0 0 3px rgba(212,166,58,0.15) !important;
+    background: #232d44 !important;
+  }
+
+  /* Submit button — gold on dark is far more legible than navy  */
+  .btn-submit {
+    background: #d4a63a !important;
+    color: #0d1117 !important;
+    box-shadow: 0 4px 16px rgba(212,166,58,0.28) !important;
+  }
+  .btn-submit:hover:not(:disabled) {
+    background: #e2b84a !important;
+    box-shadow: 0 8px 24px rgba(212,166,58,0.4) !important;
+  }
+  .form-success {
+    background: #0c2018 !important;
+    color: #6fcf97 !important;
+    border: 1px solid rgba(111,207,151,0.2) !important;
+  }
+
+  /* ── TRUST BAR DIVIDERS ──────────────────────────────────── */
+  .trust-bar-grid > div {
+    border-bottom-color: rgba(255,255,255,0.07) !important;
+    border-right-color:  rgba(255,255,255,0.07) !important;
+  }
+
+  /* ── MAP STRIP ───────────────────────────────────────────── */
+  /* background uses var(--off-white) → auto-updates           */
+  .map-strip { border-bottom-color: rgba(255,255,255,0.07) !important; }
+
+} /* end dark mobile */
+
 /* ── LARGE SCREENS / TV ≥ 1440px ── */
 @media (min-width: 1440px) {
   nav {
